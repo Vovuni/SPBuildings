@@ -4,6 +4,9 @@ import speech_recognition as sr
 
 
 class VoiceRecognizer:
+    '''
+    Класс распознавания голоса
+    '''
     def __init__(self):
         self.language = 'ru_RU'
         self.r = sr.Recognizer()
@@ -32,6 +35,13 @@ class VoiceRecognizer:
                 return "Не получилось распознать((("
 
     def get_text(self, voice_file):
+        '''
+        Функция получения текста голоса
+
+        :param: Аудиофайл.wav
+        :return: Речь, преобразованная в текст
+
+        '''
         self.__convert_voice(voice_file)
         text = self.__recognize(self.file_name_full_converted)
         self.__remove_voice()

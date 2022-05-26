@@ -7,6 +7,9 @@ APP_PORT = '5000'
 
 
 class Webhook:
+    '''
+    Класс вебхука
+    '''
     def __init__(self, bot, webhook_url):
         self.app = flask.Flask(__name__)
         bot.remove_webhook()
@@ -24,4 +27,11 @@ class Webhook:
                 flask.abort(403)
 
     def run(self):
+        '''
+        Функция запуска вебхука
+
+        :param:
+        :return:
+
+        '''
         self.app.run(host=APP_HOST, port=APP_PORT, debug=True)

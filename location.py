@@ -5,10 +5,21 @@ MAX_SQRD_RADIUS = 0.000004
 
 
 class Geolocator:
+    '''
+    Класс опреледения локации
+    '''
     def __init__(self):
         self.geolocator = Nominatim(user_agent='why')
 
+
     def get_nearest(self, message):
+        '''
+        Функция получения 5 ближайших зданий
+
+        :param message: Параметр декоратора
+        :return: Список 5 ближайших зданий
+
+        '''
         if message.location is not None:
             nearest = []
             long = message.location.longitude
